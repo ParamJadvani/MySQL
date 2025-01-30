@@ -1,32 +1,28 @@
 const { STRING, INTEGER } = require("sequelize");
 const db = require("../config/db");
 
-const User = db.define({
-    id:{
-        type:INTEGER,
-        primaryKey: true,
-        unique: true,
-        allowNull: false,
-
+const User = db.define(
+  "User",
+  {
+    id: {
+      type: INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    username:{
-        type: STRING,
-        allowNull: false,
+    username: {
+      type: STRING,
+      allowNull: false,
     },
-    email:{
-        type: STRING,
-        unique: true,
-        allowNull: false,
-        validate:{
-            isEmail: true,
-        },
+    email: {
+      type: STRING,
+      unique: true,
+      allowNull: false,
     },
-    password:{
-        type: STRING,
-        allowNull: false,
+    password: {
+      type: STRING,
+      allowNull: false,
     },
-},{
-    timestamps: true,
-});
+  },
+);
 
 module.exports = User;
