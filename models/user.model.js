@@ -1,13 +1,14 @@
 const { STRING, INTEGER } = require("sequelize");
 const db = require("../config/db");
+const { ulid } = require("ulid");
 
 const User = db.define(
   "User",
   {
     id: {
-      type: INTEGER,
+      type: STRING,
       primaryKey: true,
-      autoIncrement: true,
+      defaultValue:()=>ulid()
     },
     username: {
       type: STRING,
